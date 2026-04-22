@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact SLNS Management Services for study abroad, work abroad, and travel support." />
+  <title>SLNS Management Services | Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: "#0B3C5D", accent: "#D4AF37", background: "#F8FAFC" }, boxShadow: { soft: "0 12px 40px rgba(11, 60, 93, 0.12)" } } } };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-background text-slate-800 font-[Inter,sans-serif]">
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-slate-200/80">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24">
+        <a href="index.html" class="flex items-center text-primary"><img src="assets/images/slns-logo.png?v=20260422c" alt="SLNS Management Services logo" class="h-10 w-10 rounded-full object-cover border border-slate-200" /></a>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium"><a href="index.html" class="hover:text-primary">Home</a><a href="about.html" class="hover:text-primary">About</a><a href="services.html" class="hover:text-primary">Services</a><a href="contact.html" class="text-primary">Contact</a><a href="https://wa.me/919999999999" class="btn-premium px-4 py-2 rounded-full bg-primary text-white">Get in Touch</a></div>
+        <div class="md:hidden flex items-center gap-2">
+          <a href="contact.html" class="btn-premium px-4 py-2 rounded-full bg-primary text-white text-sm font-medium">Get Started</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bg-gradient-to-r from-primary to-sky-700 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.14em] text-slate-100">Contact us</p>
+        <h1 class="mt-2 text-4xl font-extrabold">Let us guide your next global move</h1>
+        <p class="mt-4 max-w-3xl text-slate-100">Share your goal and we will connect with the right roadmap for your study, work, or travel plan.</p>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
+        <form data-contact-form class="rounded-3xl bg-white border border-slate-200 p-8 shadow-soft space-y-4">
+          <h2 class="text-2xl font-bold text-primary">Quick Inquiry Form</h2>
+          <p class="text-sm text-slate-600">On submit, we will open WhatsApp with your pre-filled details.</p>
+          <input id="name" required type="text" placeholder="Name" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" />
+          <input id="phone" required type="tel" placeholder="Phone" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" />
+          <input id="email" required type="email" placeholder="Email" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" />
+          <select id="service" required class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none"><option value="">Service Interested In</option><option>Study Abroad</option><option>Work Abroad</option><option>Tourist Services</option><option>Other Services</option></select>
+          <textarea id="message" rows="4" placeholder="Message" class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none"></textarea>
+          <button type="submit" class="btn-premium w-full rounded-xl bg-primary text-white py-3 font-semibold">Submit via WhatsApp</button>
+        </form>
+
+        <div class="space-y-6">
+          <div class="rounded-3xl bg-white border border-slate-200 p-8 shadow-soft">
+            <h3 class="text-xl font-bold text-primary">Direct Contact</h3>
+            <div class="mt-4 space-y-3 text-sm">
+              <p><span class="font-semibold">Call:</span> <a href="tel:+919999999999" class="text-primary">+91 99999 99999</a></p>
+              <p><span class="font-semibold">WhatsApp:</span> <a href="https://wa.me/919999999999" class="text-primary">Start chat now</a></p>
+              <p><span class="font-semibold">Office:</span> SLNS Management Services, Global Business Center, Hyderabad</p>
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="tel:+919999999999" class="btn-premium px-5 py-2 rounded-full bg-primary text-white">Click to Call</a>
+              <a href="https://wa.me/919999999999" class="btn-premium px-5 py-2 rounded-full bg-green-500 text-white">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white border border-slate-200 p-8 shadow-soft">
+            <h3 class="font-semibold text-primary">Office Map</h3>
+            <div class="mt-4 rounded-2xl border border-dashed border-slate-300 p-10 text-center text-slate-500">Map placeholder (replace with Google Maps embed)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-950 text-slate-300 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><p class="text-center text-xs">&copy; <span data-year></span> SLNS Management Services. All rights reserved.</p></div>
+  </footer>
+  <a href="https://wa.me/919999999999" class="fixed bottom-20 right-4 z-50 px-4 py-3 rounded-full bg-green-500 text-white shadow-soft">WhatsApp</a>
+  <a href="tel:+919999999999" class="fixed md:hidden bottom-4 right-4 z-50 px-4 py-3 rounded-full bg-primary text-white shadow-soft">Call Now</a>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
