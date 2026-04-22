@@ -202,6 +202,32 @@ document.addEventListener("DOMContentLoaded", () => {
     typeSequentially(0);
   }
 
+  const revealTargets = document.querySelectorAll(
+    "main section > div, .card-hover, article, form, .premium-glass"
+  );
+  if (revealTargets.length > 0 && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    revealTargets.forEach((element, index) => {
+      element.classList.add("reveal-on-scroll");
+      element.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
+      revealObserver.observe(element);
+    });
+  }
+
   if (testimonialTrack && testimonialDots.length > 0) {
     let current = 0;
     const slides = testimonialTrack.querySelectorAll("[data-testimonial-slide]");
