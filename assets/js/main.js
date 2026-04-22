@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (floatingCall) {
-      floatingCall.className = "floating-action floating-action--call md:hidden";
+      floatingCall.className = "floating-action floating-action--call";
       floatingCall.innerHTML = '<span aria-hidden="true">&#9742;</span>';
       floatingCall.setAttribute("aria-label", "Call now");
       actions.appendChild(floatingCall);
