@@ -1,3 +1,4 @@
 Untitled
 *.png
 !assets/images/*.png
+!assets/images/**/*.png
