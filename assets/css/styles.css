@@ -1,5 +1,5 @@
-body {
-  background-image: radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.08), transparent 35%),
+﻿body {
+  background-image: radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.08), transparent 35%),
     radial-gradient(circle at 90% 5%, rgba(11, 60, 93, 0.08), transparent 40%);
 }
 
@@ -7,21 +7,44 @@ body {
   transition: background-color 260ms ease, border-color 260ms ease, box-shadow 260ms ease, backdrop-filter 260ms ease;
 }
 
-.site-header:not(.is-scrolled) {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-.site-header:not(.is-scrolled) a {
-  color: #111111 !important;
-}
-
-.site-header:not(.is-scrolled) .btn-premium {
-  background: #111111 !important;
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #0B3C5D !important;
   color: #ffffff !important;
-  border: 1px solid #111111 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#main-header a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.header-brand-text {
+  display: block;
+  color: #ffffff !important;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .header-brand-text {
+    font-size: 1.125rem;
+  }
+}
+
+#main-header nav > div {
+  min-height: 5.5rem;
+}
+
+#main-header:not(.is-scrolled) .btn-premium {
+  color: #ffffff !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 .site-header:not(.is-scrolled) [data-mobile-menu-button] {
@@ -59,7 +82,10 @@ body {
 }
 
 .btn-premium {
-  transition: transform 200ms ease, filter 200ms ease;
+  color: #ffffff !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 .btn-premium:hover {
@@ -68,24 +94,82 @@ body {
 }
 
 /* Consistent brand logo sizing across all pages */
-header img[alt="SLNS Management Services logo"] {
-  width: 5.5rem !important;
-  height: 5.5rem !important;
-  object-fit: contain !important;
+#main-header.is-scrolled {
+  background: #0B3C5D !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+#main-header.is-scrolled #header-logo {
+  border-color: rgba(11, 60, 93, 0.1) !important;
   background: #ffffff;
-  padding: 0.25rem;
-  border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(11, 60, 93, 0.18);
+}
+
+#main-header.is-scrolled span,
+#main-header.is-scrolled a:not(.btn-premium),
+#main-header.is-scrolled #mobile-menu-btn {
+  color: #ffffff !important;
+}
+
+#main-header.is-scrolled .btn-premium {
+  color: #ffffff !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Global Logo Sizing - Synchronized with Home Page */
+#header-logo,
+header img[id="header-logo"],
+.site-header #header-logo,
+footer img[alt="SLNS Logo"] {
+  width: 6.25rem !important;
+  height: 6.25rem !important;
+  min-width: 6.25rem !important;
+  min-height: 6.25rem !important;
+  object-fit: cover !important;
+}
+
+@media (min-width: 1024px) {
+  #main-header nav > div {
+    min-height: 6.5rem;
+  }
+
+  #header-logo,
+  header img[id="header-logo"] {
+    width: 6.75rem !important;
+    height: 6.75rem !important;
+    min-width: 6.75rem !important;
+    min-height: 6.75rem !important;
+  }
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#header-logo {
+  animation: logo-spin 20s linear infinite !important;
+  transform-origin: center center !important;
+}
+
+#header-logo:hover {
+  animation-duration: 14s !important;
 }
 
 .header-logo-match {
-  width: 5.5rem !important;
-  height: 5.5rem !important;
+  width: 3rem !important;
+  height: 3rem !important;
   object-fit: contain !important;
   background: #ffffff;
-  padding: 0.25rem;
+  padding: 0.2rem;
   border-radius: 9999px;
-  box-shadow: 0 10px 25px rgba(11, 60, 93, 0.18);
+  box-shadow: 0 4px 12px rgba(11, 60, 93, 0.1);
 }
 
 [data-footer-logo] {
@@ -98,74 +182,142 @@ header img[alt="SLNS Management Services logo"] {
   box-shadow: 0 12px 30px rgba(11, 60, 93, 0.2);
 }
 
+footer img[alt="SLNS Logo"] + span {
+  display: none !important;
+}
+
 .site-footer {
   background: #000000 !important;
   color: #ffffff;
 }
 
 @media (max-width: 767px) {
+  body > footer,
   .site-footer {
-    padding-bottom: 5.75rem !important;
+    padding-bottom: 8rem !important;
+  }
+
+  main[class*="py-32"] {
+    padding-top: 8rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  main[class*="pt-40"] {
+    padding-top: 8rem !important;
+  }
+
+  main[class*="pb-32"] {
+    padding-bottom: 4rem !important;
+  }
+
+  main section[class*="py-24"],
+  main section[class*="md:py-24"] {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  main section[class*="py-20"] {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  main section[class*="py-16"] {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  main .grid[class*="gap-20"],
+  main .grid[class*="gap-16"],
+  main .grid[class*="gap-12"],
+  main .flex[class*="gap-12"],
+  main .grid[class*="gap-10"] {
+    gap: 2rem !important;
+  }
+
+  footer[class*="py-16"] {
+    padding-top: 3rem !important;
   }
 }
 
-.floating-actions {
+/* ── Circular Floating Action Buttons ── */
+.fab-container {
   position: fixed;
-  right: 1rem;
-  bottom: 6.5rem;
-  z-index: 60;
+  right: 1.25rem;
+  bottom: 5.5rem;
+  z-index: 200;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.floating-actions-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.75rem;
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.floating-actions--collapsed .floating-actions-list {
+.fab-container.nav-hidden {
+  transform: translateX(150%) !important;
   opacity: 0;
-  transform: translateY(8px);
   pointer-events: none;
 }
 
-.floating-action,
-.floating-toggle {
-  display: inline-flex;
+.fab-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.fab-list.fab-open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.fab-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 9999px;
   color: #ffffff;
-  font-weight: 700;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
-}
-
-.floating-action span {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.floating-action--whatsapp {
-  background: #22c55e;
-}
-
-.floating-action--call {
-  background: #0b3c5d;
-}
-
-.floating-toggle {
-  border: 0;
-  background: #111111;
+  font-size: 1.35rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  font-size: 1.25rem;
-  letter-spacing: 0.1em;
+  text-decoration: none;
+  border: none;
+}
+
+.fab-btn:hover {
+  transform: scale(1.1);
+}
+
+.fab-whatsapp { background: #22c55e; }
+.fab-call     { background: #0B3C5D; }
+.fab-dots     { background: #1e1e2e; font-size: 1.1rem; letter-spacing: 0.05em; }
+
+.fab-container {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.5rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.fab-container.nav-hidden {
+  transform: translateX(150%) !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .fab-container { bottom: 2rem; }
 }
 
 .mobile-bottom-nav {
@@ -173,14 +325,21 @@ header img[alt="SLNS Management Services logo"] {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 55;
-  display: none;
+  z-index: 190;
+  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: 0.25rem;
   padding: 0.7rem 0.75rem calc(0.7rem + env(safe-area-inset-bottom));
   background: #0b3c5d;
   box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.18);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.mobile-bottom-nav.nav-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .mobile-bottom-nav__item {
@@ -201,23 +360,74 @@ header img[alt="SLNS Management Services logo"] {
 }
 
 .mobile-bottom-nav__item.is-active {
-  color: #d4af37;
+  color: #f97316;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .mobile-bottom-nav {
-    display: grid;
+    display: none !important;
+  }
+}
+
+#mobile-menu-btn {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  main > section:first-of-type,
+  .hero-section {
+    padding-top: 6.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  main > section:first-of-type,
+  .hero-section {
+    padding-top: 14rem !important;
   }
 }
 
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-left {
+  transform: translate3d(-42px, 0, 0);
+}
+
+.reveal-on-scroll.reveal-right {
+  transform: translate3d(42px, 0, 0);
+}
+
+.reveal-on-scroll.reveal-up {
+  transform: translate3d(0, 30px, 0);
 }
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 767px) {
+  .reveal-on-scroll,
+  .reveal-on-scroll.reveal-left,
+  .reveal-on-scroll.reveal-right,
+  .reveal-on-scroll.reveal-up {
+    transform: translate3d(0, 22px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-on-scroll.reveal-left,
+  .reveal-on-scroll.reveal-right,
+  .reveal-on-scroll.reveal-up,
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
