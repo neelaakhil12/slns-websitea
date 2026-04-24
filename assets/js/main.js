@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const yearElements = document.querySelectorAll("[data-year]");
   const testimonialTrack = document.querySelector("[data-testimonial-track]");
