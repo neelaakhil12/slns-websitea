@@ -24,6 +24,26 @@
     document.body.appendChild(fabContainer);
   };
 
+  const legacyImageMap = {
+    "image copy.png": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
+    "image copy 2.png": "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80",
+    "image copy 3.png": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1200&q=80",
+    "image copy 4.png": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=80",
+    "image copy 5.png": "https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=1200&q=80",
+    "image copy 6.png": "https://images.unsplash.com/photo-1431274172761-fca41d930114?auto=format&fit=crop&w=1200&q=80",
+    "image copy 7.png": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80",
+    "image copy 8.png": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+    "image copy 9.png": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1200&q=80",
+    "image copy 10.png": "https://images.unsplash.com/photo-1508182314998-3bd49473002f?auto=format&fit=crop&w=1200&q=80",
+    "image copy 11.png": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    "image copy 12.png": "https://images.unsplash.com/photo-1538485399081-7c897f2de82b?auto=format&fit=crop&w=1200&q=80",
+    "image copy 13.png": "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1200&q=80",
+    "image copy 14.png": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80",
+    "image copy 15.png": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+    "image copy 16.png": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=1200&q=80",
+    "image copy 17.png": "https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=1200&q=80"
+  };
+
   const buildLegacyPlaceholder = (label) => {
     const title = (label || "SLNS Destination").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const svg = `
@@ -51,8 +71,16 @@
     const legacyImages = document.querySelectorAll('img[src^="image copy"]');
 
     legacyImages.forEach(img => {
+      const originalSrc = img.getAttribute("src") || "";
+      const mappedSrc = legacyImageMap[originalSrc];
       const placeholderSrc = buildLegacyPlaceholder(img.alt || "SLNS Destination");
-      img.src = placeholderSrc;
+
+      img.onerror = () => {
+        img.onerror = null;
+        img.src = placeholderSrc;
+      };
+
+      img.src = mappedSrc || placeholderSrc;
       img.loading = "lazy";
       img.decoding = "async";
     });
