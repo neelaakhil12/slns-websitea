@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -28,6 +28,38 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body class="bg-background text-slate-800 font-[Inter,sans-serif]">
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="splash-screen">
+    <img src="assets/images/slns-logo-new.png?v=20260423_logo" alt="SLNS Logo" class="splash-logo" />
+    <div id="countdown" class="splash-countdown">
+      <span class="countdown-number">3</span>
+    </div>
+    <div class="splash-text">Your Gateway to Global Opportunities</div>
+  </div>
+
+  <script>
+    // Splash Screen Countdown Logic
+    (function() {
+      const splash = document.getElementById('splash-screen');
+      const countdownEl = document.getElementById('countdown');
+      let count = 3;
+
+      const timer = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countdownEl.innerHTML = `<span class="countdown-number">${count}</span>`;
+        } else {
+          clearInterval(timer);
+          splash.classList.add('is-hidden');
+          // Start the main page animations if any
+          document.body.classList.add('splash-complete');
+          setTimeout(() => {
+            splash.style.display = 'none';
+          }, 800);
+        }
+      }, 1000);
+    })();
+  </script>
   <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="main-header">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 lg:h-24">
