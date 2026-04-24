@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://slns-websitea.vercel.app/sitemap.xml
+Sitemap: https://slnsservices.com/sitemap.xml
+
